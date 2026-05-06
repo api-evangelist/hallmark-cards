@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,10 +9,11 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Hallmark Cards
 providerId: hallmark-cards
-publisherName: Hallmark Cards
-serviceCategory: API
+publisherName: Hallmark Cards, Inc.
+serviceCategory: Retail / Consumer Goods Partner API
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Greeting Cards
   - Gift
@@ -19,20 +21,23 @@ tags:
   - FinOps
   - Cost Management
   - FOCUS
-description: FinOps framework definition for the Hallmark Cards API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+description: 'FOCUS-aligned FinOps placeholder for Hallmark Cards: no public commercial API. The
+  shape below treats partner integration as a contract-bundled subscription with allocation meters
+  for retail / supply-chain integration.'
+notes: No public commercial model is published. Reconcile against an actual partner agreement.
+sources:
+  - https://www.hallmark.com/
 principles:
   - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
+    description: Track partner-integration request volume via the Hallmark partner gateway logs.
   - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
+    description: Allocate integration cost across retail channels (own-brand stores, big-box,
+      e-commerce) using the calling system identifier.
   - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
+    description: Cache catalog and inventory lookups; batch order updates; consolidate retailer
+      integrations through a single channel.
   - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
+    description: Designate a partner-program owner; review API utilization quarterly.
 domains:
   - name: Understand Usage and Cost
     capabilities:
@@ -62,53 +67,40 @@ domains:
       - Onboarding Workloads
       - Intersecting Disciplines
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Subscription
+  billingFrequency: Annual
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
     - Tax
-    - Credit
     - Adjustment
   chargeFrequency: Recurring
 focusColumns:
-  ServiceName: Hallmark Cards
-  ServiceCategory: Developer Tools / API
+  ServiceName: Hallmark Cards API
+  ServiceCategory: Retail / Consumer Goods Partner API
   ProviderName: Hallmark Cards
-  PublisherName: Hallmark Cards
-  InvoiceIssuerName: Hallmark Cards
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: Hallmark Cards, Inc.
+  InvoiceIssuerName: Hallmark Cards, Inc.
+  PricingCategory: Subscription
+  PricingUnit: partner-agreement
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
   - name: api_requests
-    description: Count of billable API requests
+    description: Partner-integration request volume (allocation meter)
     unit: request
     aggregation: sum
     dimensions:
-      - api
+      - partner
+      - channel
       - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+  - name: orders_synced
+    description: Order / fulfillment events synced via the API
+    unit: order
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
+      - partner
+      - channel
 apis:
   - name: Hallmark Cards API
     baseURL: https://api.hallmark.com
@@ -119,11 +111,11 @@ apis:
     serviceName: Hallmark Cards API
     serviceCategory: API
 unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
+  - name: Cost per Partner Integration
+    metric: billed_cost / active_partners
     target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
+  - name: Cost per Order Synced
+    metric: billed_cost / orders_synced
     target: TBD
 maintainers:
   - FN: Kin Lane
