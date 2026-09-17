@@ -4,45 +4,33 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Hallmark Cards
 providerId: hallmark-cards
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+modified: '2026-09-17'
+generated: '2026-09-17'
+method: searched
+source: https://www.hallmark.com/
+sources:
+  - https://www.hallmark.com/
+  - https://www.hallmarkbusiness.com/business-solutions/business-solutions/
+  - https://corporate.hallmark.com/business-opportunities/
+plan_count: 0
+api_plan_count: 0
 reconciled: false
 tags:
   - Greeting Cards
   - Gift
   - Retail
-description: Hallmark Cards is a privately held US greeting-card and gift retailer. There is no
-  public developer API, pricing page, or partner-program plan catalog published on hallmark.com.
-  Any API access is via bilateral retail / partner integration.
-notes: No public pricing or developer plans are available. The single placeholder Enterprise plan
-  records the expected commercial shape; reconcile against a partner agreement if one exists.
-sources:
-  - https://www.hallmark.com/
-plans:
-  - id: hallmark-cards-enterprise
-    name: Enterprise / Partner
-    type: enterprise
-    description: Bilateral partner agreement for retail / supply-chain integration. Contract-defined
-      volumes and SLAs.
-    entries:
-      - label: Plan price
-        description: Custom-quoted via the partner agreement
-        name: plan_price
-        type: subscription
-        metric: month
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://api.hallmark.com
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-    elements:
-      - name: Partner Account Manager
-      - name: Hallmark Cards API
+description: >-
+  Hallmark Cards publishes no API plans, developer pricing, or partner-program plan catalog. The
+  company is a privately held greeting-card, gift and media business with no public developer
+  program: developer.hallmark.com does not resolve and api.hallmark.com serves a stock ASP.NET
+  template. Hallmark Business Connections sells B2B card programs (volume-priced card packs, CRM
+  and SSO integrations) and Hallmark Global Services trades with retailers over EDI, both under
+  bilateral commercial agreements rather than a published API tier.
+notes: >-
+  Searched 2026-09-17. The placeholder "Enterprise / Partner" plan that an earlier bulk sweep wrote
+  here (2026-05-04) described an api.hallmark.com host that serves no API and has been removed; a
+  zero is the honest record.
+plans: []
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,89 @@
+generated: '2026-09-17'
+method: probed
+source: live GET of every closed-list /.well-known/ path on every host the record knows (browser User-Agent, redirects followed)
+note: >-
+  Every path on every host returned 404 (hallmark.com apex 301s to www.hallmark.com and
+  www.hallmarkbusiness.com 302s to its own 404 page before the final 404). Not one document was
+  served, so NO WellKnown / SecurityTxt pointer is emitted in apis.yml — this manifest records a
+  probed absence. api.hallmark.com resolves (Akamai) but serves a stock ASP.NET MVC template
+  ("Application name" / "ASP.NET" jumbotron) whose only link, /Help, is itself a 404.
+hit_count: 0
+hosts:
+  - host: www.hallmark.com
+    note: registrable domain + www (hallmark.com apex 301s here for every path)
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/oauth-protected-resource, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/api-catalog.json, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/ucp.json, status: 404}
+      - {path: /.well-known/acp.json, status: 404}
+      - {path: /.well-known/aauth-resource.json, status: 404}
+      - {path: /.well-known/apis.json, status: 404}
+      - {path: /apis.json, status: 404}
+      - {path: /apis.yml, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+      - {path: /llms.txt, status: 404}
+  - host: api.hallmark.com
+    note: the host the prior apis.yml named as baseURL; stock ASP.NET template, no API surface, no spec at /openapi.json, /swagger.json, /v1/openapi.json, /api-docs, /docs, /redoc, /graphql (all 404)
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/oauth-protected-resource, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/api-catalog.json, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/ucp.json, status: 404}
+      - {path: /.well-known/acp.json, status: 404}
+      - {path: /.well-known/aauth-resource.json, status: 404}
+      - {path: /.well-known/apis.json, status: 404}
+      - {path: /apis.json, status: 404}
+      - {path: /apis.yml, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+  - host: corporate.hallmark.com
+    note: corporate information site (WordPress)
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/oauth-protected-resource, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/api-catalog.json, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/ucp.json, status: 404}
+      - {path: /.well-known/acp.json, status: 404}
+      - {path: /.well-known/aauth-resource.json, status: 404}
+      - {path: /.well-known/apis.json, status: 404}
+      - {path: /apis.json, status: 404}
+      - {path: /apis.yml, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+  - host: www.hallmarkbusiness.com
+    note: Hallmark Business Connections (B2B card programs, Salesforce Commerce Cloud); every path 302s to the site 404 page
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/oauth-protected-resource, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/api-catalog.json, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/ucp.json, status: 404}
+      - {path: /.well-known/acp.json, status: 404}
+      - {path: /.well-known/aauth-resource.json, status: 404}
+      - {path: /.well-known/apis.json, status: 404}
+      - {path: /apis.json, status: 404}
+      - {path: /apis.yml, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+unresolved_hosts:
+  - host: developer.hallmark.com
+    note: named as humanURL / Documentation in the prior apis.yml; the name does not resolve in DNS (curl exit 6) — the pointer was fabricated and has been removed
+  - host: developers.hallmark.com
+    note: does not resolve in DNS

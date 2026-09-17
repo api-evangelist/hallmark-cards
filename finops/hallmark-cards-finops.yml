@@ -106,7 +106,6 @@ meters:
       - channel
 apis:
   - name: Hallmark Cards API
-    baseURL: https://api.hallmark.com
     tags:
       - Greeting Cards
       - Gift

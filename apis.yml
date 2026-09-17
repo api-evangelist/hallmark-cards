@@ -2,61 +2,169 @@ aid: hallmark-cards
 url: https://raw.githubusercontent.com/api-evangelist/hallmark-cards/refs/heads/main/apis.yml
 name: Hallmark Cards
 type: Index
+kind: company
+position: Consuming
+access: 3rd-Party
+x-api-posture: no-product-api
+x-api-posture-basis: observed
 deliveryModel:
-  model: unknown
+  model: saas
   open_source: false
-  commercial: false
+  commercial: true
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Hosted service · you call their endpoint
+  confidence: medium
   source:
-  - none
-  generated: '2026-08-28'
+  - pricing
+  generated: '2026-09-17'
   method: derived
 accessModel:
-  pricing: enterprise
+  pricing: unknown
   onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Enterprise
-  confidence: medium
+  label: No public API program
+  confidence: high
   source:
-  - plans
-  generated: '2026-07-22'
-  method: derived
+  - researched
+  generated: '2026-09-17'
+  method: researched
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/hallmark-cards.png
 tags:
   - Greeting Cards
+  - Gifts
+  - Retail
+  - Consumer Goods
+  - Stationery
+  - Gift Wrap
+  - Media
+  - Business Greetings
+  - Fortune 1000
+tags_raw:
+  - Greeting Cards
   - Gift
   - Retail
+  - Consumer Goods
+  - Stationery
+  - Gift Wrap
+  - Media
+  - Business Greetings
+  - Fortune 1000
 description: >-
-  Hallmark Cards is a major US corporation and Fortune 1000 company. The Hallmark Cards API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+  Hallmark Cards, Inc. is a privately held, family-owned greeting card, gift, gift wrap and
+  ornament company headquartered in Kansas City, Missouri, founded in 1910 by J.C. Hall. Its
+  portfolio spans Hallmark greeting cards and Keepsake Ornaments sold through Hallmark Gold Crown
+  stores and mass retailers, the Crayola and Hallmark Business Connections (B2B greeting card
+  programs) subsidiaries, and Hallmark Media (Hallmark Channel, Hallmark+). Hallmark publishes no
+  public developer program: developer.hallmark.com does not resolve, api.hallmark.com serves a
+  stock ASP.NET template with no documented endpoints, and no OpenAPI, GraphQL, MCP, A2A agent
+  card, llms.txt or /.well-known discovery document was found on any Hallmark host on 2026-09-17.
+  Retail and supply-chain partners integrate through bilateral EDI (Hallmark Global Services) and
+  Hallmark Business Connections' CRM/SSO integrations, none of which are documented publicly.
 created: '2026-04-19'
-modified: '2026-04-19'
+modified: '2026-09-17'
 specificationVersion: '0.23'
-apis:
-  - aid: hallmark-cards:hallmark-cards-api
-    name: Hallmark Cards API
-    tags:
-      - Greeting Cards
-      - Gift
-      - Retail
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.hallmark.com
-    humanURL: https://developer.hallmark.com
-    properties:
-      - url: https://developer.hallmark.com/docs
-        type: Documentation
-    description: >-
-      The Hallmark Cards API provides access to platform services and data for enterprise integration and automation.
+apis: []
 common:
-  - type: DomainSecurity
-    url: security/hallmark-cards-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/hallmark-cards
   - type: Website
     url: https://www.hallmark.com
+  - type: About
+    url: https://corporate.hallmark.com/
+  - type: Newsroom
+    url: https://corporate.hallmark.com/hallmark-news/news/
+  - type: BlogRSS
+    url: https://corporate.hallmark.com/feed/
+  - type: Blog
+    url: https://ideas.hallmark.com/
+  - type: BlogRSS
+    url: https://ideas.hallmark.com/feed/
+  - type: Support
+    url: https://care.hallmark.com/s/
+  - type: Careers
+    url: https://careers.hallmark.com/
+  - type: Partners
+    url: https://corporate.hallmark.com/business-opportunities/
+  - type: X-Suppliers
+    url: https://corporate.hallmark.com/citizenship/hallmark-community/supplier-partnerships/
+  - type: X-BusinessSolutions
+    url: https://www.hallmarkbusiness.com/
+  - type: PrivacyPolicy
+    url: https://www.hallmark.com/privacy/
+  - type: TermsOfService
+    url: https://www.hallmark.com/terms-of-use/
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/hallmark-cards
+  - type: DomainSecurity
+    url: security/hallmark-cards-domain-security.yml
+  - type: X-WellKnownProbe
+    url: well-known/hallmark-cards-well-known.yml
+  - type: Plans
+    url: plans/hallmark-cards-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/hallmark-cards-rate-limits.yml
+  - type: FinOps
+    url: finops/hallmark-cards-finops.yml
+x-pointer-liveness:
+  checked: '2026-09-17'
+  method: curl with a browser User-Agent; title read from the body
+  results:
+    - {url: 'https://www.hallmark.com', status: 200}
+    - {url: 'https://corporate.hallmark.com/', status: 200}
+    - {url: 'https://corporate.hallmark.com/hallmark-news/news/', status: 200}
+    - {url: 'https://corporate.hallmark.com/feed/', status: 200, content_type: application/rss+xml}
+    - {url: 'https://ideas.hallmark.com/', status: 200}
+    - {url: 'https://ideas.hallmark.com/feed/', status: 200, content_type: application/rss+xml}
+    - {url: 'https://care.hallmark.com/s/', status: 200}
+    - {url: 'https://careers.hallmark.com/', status: 200}
+    - {url: 'https://corporate.hallmark.com/business-opportunities/', status: 200}
+    - {url: 'https://corporate.hallmark.com/citizenship/hallmark-community/supplier-partnerships/', status: 200}
+    - {url: 'https://www.hallmarkbusiness.com/', status: 200}
+    - {url: 'https://www.hallmark.com/privacy/', status: 200}
+    - {url: 'https://www.hallmark.com/terms-of-use/', status: 200}
+    - {url: 'https://www.linkedin.com/company/hallmark-cards', status: 200}
+  removed:
+    - {url: 'https://developer.hallmark.com', status: 0, note: 'DNS does not resolve; was humanURL of a fabricated API entry'}
+    - {url: 'https://developer.hallmark.com/docs', status: 0, note: 'DNS does not resolve; was the Documentation pointer of a fabricated API entry'}
+    - {url: 'https://api.hallmark.com', status: 200, note: 'resolves via Akamai but serves a stock ASP.NET MVC template; /Help, /openapi.json, /swagger.json, /api-docs, /docs, /graphql all 404 — not an API surface, removed as baseURL'}
+x-evidence:
+  verified: '2026-09-17'
+  method: probed every host, searched the web, read the Business Connections and corporate sites
+  summary: >-
+    No API entry is listed because none could be evidenced. Web search for a Hallmark Cards developer
+    API returns only unrelated projects (the Nxt blockchain "Hallmark" API, a third-party
+    nondracek/hallmark-api scraper). The GitHub org HallmarkCards (Hallmark Cards UK) has 0 public
+    repos and github.com/hallmark is an unrelated individual. Hallmark Business Connections markets
+    CRM and SSO integrations for its B2B card programs but publishes no integration reference.
+    Hallmark Global Services trades with retailers over EDI through TrueCommerce (a third-party
+    network, 403 to our crawler). Hallmark is privately held, so there are no SEC EDGAR filings to
+    list as a third-party government API.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-17'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Hallmark sells physical greeting cards, gifts and ornaments plus television media; developer.hallmark.com
+    does not resolve and api.hallmark.com is a stock ASP.NET template whose only link (/Help) 404s,
+    with no spec, discovery document, agent card or llms.txt on any of five Hallmark hosts.
+  evidence:
+    - url: https://developer.hallmark.com/docs
+      status: 0
+    - url: https://api.hallmark.com/Help
+      status: 404
+    - url: https://api.hallmark.com/openapi.json
+      status: 404
+    - url: https://www.hallmark.com/.well-known/api-catalog
+      status: 404
+    - url: https://www.hallmark.com/llms.txt
+      status: 404
+    - url: https://www.hallmarkbusiness.com/developers/
+      status: 404
+  checked: '2026-09-17'

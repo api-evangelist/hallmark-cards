@@ -4,43 +4,32 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Hallmark Cards
 providerId: hallmark-cards
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+modified: '2026-09-17'
+generated: '2026-09-17'
+method: searched
+source: https://www.hallmark.com/
+sources:
+  - https://www.hallmark.com/
+  - https://api.hallmark.com/
+  - https://www.hallmarkbusiness.com/
+limit_count: 0
 reconciled: false
 tags:
   - Greeting Cards
   - Gift
   - Retail
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Hallmark Cards does not publish a public API rate-limit document. Throttling is
-  governed by partner-agreement terms.
-notes: No public rate-limit documentation could be located.
-sources:
-  - https://www.hallmark.com/
-headers:
-  retryAfter: Retry-After
-responseCodes:
-  throttled: 429
-  serviceUnavailable: 503
-limits:
-  - tier: enterprise
-    name: Contract-defined per-partner limit
-    scope: partner
-    metric: varies
-    limit: see partner agreement
-    applies:
-      - Hallmark Cards API
-policies:
-  - name: Backoff Strategy
-    description: Honor Retry-After on 429 and back off with exponential jitter on transient 5xx.
-  - name: Partner Scoping
-    description: Limits are enforced per partner credential.
-  - name: Fair Use
-    description: Sustained traffic above contracted volumes may be throttled.
+description: >-
+  Hallmark Cards publishes no API rate-limit documentation because it publishes no public API.
+  There are no documented limits, windows, burst allowances, rate-limit response headers or
+  exhaustion status codes to record.
+notes: >-
+  Searched 2026-09-17. The earlier bulk-sweep placeholder (Retry-After / 429 / "see partner
+  agreement") described an api.hallmark.com host that serves a stock ASP.NET template and no API;
+  it has been replaced with an honest zero.
+headers: {}
+limits: []
+policies: []
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
