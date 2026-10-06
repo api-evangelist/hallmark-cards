@@ -63,10 +63,14 @@ description: >-
   Retail and supply-chain partners integrate through bilateral EDI (Hallmark Global Services) and
   Hallmark Business Connections' CRM/SSO integrations, none of which are documented publicly.
 created: '2026-04-19'
-modified: '2026-09-17'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis: []
 common:
+  - url: https://ideas.hallmark.com/mahogany-ideas/
+    type: Blog
+  - url: https://ideas.hallmark.com/mahogany-ideas/feed/
+    type: BlogRSS
   - type: Website
     url: https://www.hallmark.com
   - type: About
